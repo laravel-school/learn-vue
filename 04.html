@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Else If</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ number }} is
+        <span v-if="number < 5">
+            too low.
+        </span>
+        <span v-else-if="number >= 5 && number < 10">
+            right there
+        </span>
+        <span v-else>
+            too high
+        </span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                number: 0,
+            },
+            mounted() {
+                /* setTimeout(() => {
+                    this.number = 6;
+                }, 3000); */
+
+                setInterval(() => {
+                    this.number = Math.floor(Math.random() * (20 - 1) + 1)
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>
