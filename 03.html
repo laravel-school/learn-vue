@@ -12,6 +12,10 @@
         <div v-if="loaded">
             {{ message }}
         </div>
+
+        <div v-if="number > 1">
+            {{ number }}
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,6 +25,7 @@
             el: "#app",
             data: {
                 loaded: false,
+                number: 0,
                 message: "Laravel School"
             }
         });
