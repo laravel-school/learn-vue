@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteration / Looping with Index</title>
+</head>
+
+<body>
+    <div id="app">
+        <template v-if="! loaded">
+            loading...
+        </template>
+        <template v-else>
+            <div class="users" v-for="value, property in users">
+                <h2>{{ value.name }}</h2>
+                <div>{{ value.email }}</div>
+            </div>
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                loaded: false,
+                users: []
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.loaded = true
+
+                    this.users = [{
+                            id: 1,
+                            name: "Thouhedul Islam",
+                            email: "tisuchi@gmail.com"
+                        },
+                        {
+                            id: 2,
+                            name: "Tajul Islam",
+                            email: "tikochi@gmail.com"
+                        },
+                        {
+                            id: 3,
+                            name: "Manfuza Akter",
+                            email: "manfuza@gmail.com"
+                        },
+                        {
+                            id: 4,
+                            name: "Momota Hena",
+                            email: "momotahena@gmail.com"
+                        },
+                    ];
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>
