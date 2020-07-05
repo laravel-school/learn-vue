@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Events</title>
+</head>
+
+<body>
+    <div id="app">
+        <a href="" @click.prevent="clickMe">Click Me</a>
+
+        <div>
+            {{ message }}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "Laravel School"
+            },
+            methods: {
+                clickMe: function () {
+                    this.message = "I love Vue JS"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
