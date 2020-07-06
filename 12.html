@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio and Checkbox</title>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="submitForm">
+            <div>
+                <input type="checkbox" value="rahi" v-model="choosePeople"> Rahi
+            </div>
+            <div>
+                <input type="checkbox" value="ohi" v-model="choosePeople"> Ohi
+            </div>
+
+            <div class="radio">
+                <input type="radio" value="rahi" v-model="chooseRadio"> Rahi
+                <input type="radio" value="ohi" v-model="chooseRadio"> Ohi
+            </div>
+
+            <button>Submit</button>
+        </form>
+
+        {{ choosePeople }}
+
+        <div>
+            {{ chooseRadio }}
+        </div>
+
+        <div style="white-space: pre-line">
+            {{ message }}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                choosePeople: [],
+                chooseRadio: null,
+                people: [{
+                        id: 1,
+                        name: "Rahi"
+                    },
+                    {
+                        id: 2,
+                        name: "Ohi"
+                    },
+                    {
+                        id: 3,
+                        name: "Tanim"
+                    },
+                    {
+                        id: 4,
+                        name: "Nayem"
+                    },
+                    {
+                        id: 5,
+                        name: "Sayem"
+                    },
+                    {
+                        id: 6,
+                        name: "Mahim"
+                    },
+                    {
+                        id: 7,
+                        name: "Ava"
+                    },
+                    {
+                        id: 8,
+                        name: "Prova"
+                    },
+                    {
+                        id: 9,
+                        name: "Naba"
+                    },
+                    {
+                        id: 10,
+                        name: "Ahiyan"
+                    },
+                ]
+            },
+            methods: {
+                submitForm() {
+                    console.log(this.message)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
