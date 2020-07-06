@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="price">
+
+        {{ price + vet }}
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                price: null,
+                vet: 5.5
+            },
+            methods: {
+                submitForm() {
+                    console.log(this.message)
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
