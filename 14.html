@@ -17,6 +17,7 @@
 
         <textarea v-model.trim="tweet"></textarea>
         <p>{{ tweet.length }} out of {{ total }}</p>
+        <p v-if="tweet.length > total">You have reached your limit.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
