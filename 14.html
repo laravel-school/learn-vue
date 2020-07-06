@@ -15,9 +15,13 @@
 
         <h2>Tweet</h2>
 
-        <textarea v-model.trim="tweet"></textarea>
+        <textarea v-model.trim.lazy="tweet"></textarea>
         <p>{{ tweet.length }} out of {{ total }}</p>
         <p v-if="tweet.length > total">You have reached your limit.</p>
+
+        <div>
+            {{ tweet }}
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
