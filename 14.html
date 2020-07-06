@@ -13,6 +13,10 @@
 
         {{ price + vet }}
 
+        <h2>Tweet</h2>
+
+        <textarea v-model.trim="tweet"></textarea>
+        <p>{{ tweet.length }} out of {{ total }}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,12 +26,9 @@
             el: "#app",
             data: {
                 price: null,
-                vet: 5.5
-            },
-            methods: {
-                submitForm() {
-                    console.log(this.message)
-                }
+                vet: 5.5,
+                total: 140,
+                tweet: []
             },
         });
     </script>
