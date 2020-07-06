@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select / Dropdown box</title>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="country" @change="chooseCountry">
+            <option value="">Choose One</option>
+            <option :value="country.code" v-for="country in countries">{{ country.name }}</option>
+        </select>
+
+        {{ country }}
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                country: '',
+                countries: []
+            },
+            methods: {
+                submitForm() {
+                    console.log(this.message)
+                }
+            },
+            methods: {
+                chooseCountry() {
+
+                }
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.countries = [{
+                            code: "UK",
+                            name: "United Kingdom"
+                        },
+                        {
+                            code: "BD",
+                            name: "Bangladesh"
+                        },
+                        {
+                            code: "US",
+                            name: "United States"
+                        },
+                    ];
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>
