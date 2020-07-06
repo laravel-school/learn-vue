@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Binding</title>
+
+    <style>
+        .read {
+            opacity: .5;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="list in lists" :class="{ read: list.read === true }">
+                <input type="checkbox" :value="list.id" @change="toggleItem(list.id)" v-model="items"> {{ list.title }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                items: [],
+                lists: [{
+                        id: 1,
+                        title: "Code practice",
+                        read: false
+                    },
+                    {
+                        id: 2,
+                        title: "Video Cast",
+                        read: false
+                    },
+                    {
+                        id: 3,
+                        title: "Go outing",
+                        read: false
+                    },
+                    {
+                        id: 4,
+                        title: "Talk to Sharmin",
+                        read: false
+                    },
+                    {
+                        id: 5,
+                        title: "Work for CartX",
+                        read: false
+                    },
+                ],
+            },
+            methods: {
+                toggleItem(id) {
+                    let list = this.lists.find((list) => {
+                        return id === list.id
+                    });
+
+                    if (list) {
+                        list.read = true;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
