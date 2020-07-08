@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ name | lowerCase | trim }}</div>
+        <div>{{ message | truncate }}</div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                name: "THOUHEDUL ISLAM           ",
+                message: "Vue is also available on unpkg and cdnjs (cdnjs takes some time to sync so the latest release may not be available yet).Make sure to read about the different builds of Vue and use the production version in your published site, replacing vue.js with vue.min.js.This is a smaller build optimized for speed instead of development experience."
+            },
+            filters: {
+                lowerCase(value) {
+                    return value.toLowerCase();
+                },
+                trim(value) {
+                    return value.replace(/\s/g, '')
+                },
+                truncate(value, length = 50) {
+                    if (value.length > length) {
+                        return value.substring(0, length) + '...'
+                    }
+
+                    return value;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
